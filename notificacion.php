@@ -49,7 +49,7 @@ if(  $cumple == $hoy ){
     $mailer->send();
 }else{
 
-    echo "nada";
+    echo "No hay evento para hoy";
 };
 
 ?>

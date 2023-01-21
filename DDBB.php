@@ -10,7 +10,8 @@ define('DATABASE', 'aniversarios');
 try {
     $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, CLAVE);
   
-
+    $cnx = $connection;
+    
 } catch (PDOException $e) {
 exit("¡OJO, Error!: " . $e->getMessage());
 

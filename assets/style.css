@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'Cute Font';
+    src: url("./CuteFont-Regular.woff");
+ 
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #252525;
+}
+
+
+header{
+    width: 100%;
+    background-color: #252525;
+    text-align: end;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    align-items: baseline;
+    box-shadow: 1px 1px .3em  #cacaca88;
+}
+
+header h1{
+    color: #eee;
+    font-family: 'Cute Font';
+    margin:0;
+    text-shadow: 0px 1px 1px rgba(238, 238, 238, 0.76)   ;
+}
+header a{
+    text-decoration: none;
+    color: #eee;
+    margin: 0;
+    border:1px solid #eee;
+    padding:.3em .6em;
+}
+
+.contenedor{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding:1em;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    gap:1em;
+    margin:auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+.registros-conteiner{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap:.3em;
+    padding: 1em;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: auto;
+    border: 1px solid ;
+    background-color: #3f7396;
+}
+
+.forms label{
+    color: #cacaca
+}
+.forms input{
+    width: 100%;
+    padding: 5px;
+}
+
+.eventos-registrados, .proximos-eventos{
+   border: 1px solid #cacaca;
+    padding: .4em;
+    background-color: #536976;
+    width: 50%;
+    overflow: hidden;
+    max-height: 50%;
+   
+}
+
+
+.proximos-eventos ul::-webkit-scrollbar,
+.eventos-registrados ul::-webkit-scrollbar{
+   
+    width: 6px;
+    background-color: transparent;
+}
+
+
+.proximos-eventos ul::-webkit-scrollbar-thumb,
+.eventos-registrados ul::-webkit-scrollbar-thumb{
+
+    background-color: #cacaca;
+    height: 10%;
+    border-radius: 2em;
+
+}
+
+.eventos-registrados .proximos-eventos, h2{
+color: #cacaca;
+text-decoration:underline;
+
+}
+
+.eventos-registrados .proximos-eventos, ul{
+    height:5em;
+    padding: .1em;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.eventos-registrados .proximos-eventos, ul li{
+    color:#cacaca;
+ 
+    text-transform: uppercase;
+}
+
+
+
+@media only screen and (max-width:750px) {
+    .contenedor{
+        width: 100%;
+    }
+
+    .registros-conteiner,.forms{
+        width: 100%;
+    }
+
+    .registros-conteiner h2{
+
+    font-size: 1rem;
+    }
+
+    .eventos-registrados .proximos-eventos, ul li{
+        font-size: .8rem;
+    }
+}

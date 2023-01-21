@@ -29,19 +29,37 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/login.css">
 </head>
 <body>
     
 <div id="signup">
-    <h1>INGRESA</h1>
- 
-    <form method="post" action="./login.php" name="login" autocomplete="off" >
     
-    <label for="email">Email:</label>
-      <input type="text" name="email" id="email" autocomplete="off" />
-    <label for="clvae">Password:</label>
-      <input type="password" name="clave" id="clave"  autocomplete="off"/>
+    <form method="post" action="./login.php" name="login" autocomplete="off" >
+        <img src="./icons/calendars.svg" alt="">
+        <h1>ALMANCRON</h1>
+        <h2>INGRESAR</h2>
+    <div class="emailConteiner">
+
+        <span>
+            
+            <img src="./icons/email.svg" alt="">
+            <input type="text" name="email" id="email" autocomplete="off"  required/>
+            <label for="email" class="labelEmail">Correo:</label>
+
+        </span>
+
+    </div>
+
+<div class="claveConteiner">
+    
+    <span>
+        <img src="./icons/padlock.svg" alt="">
+        <input type="password" name="clave" id="clave"  autocomplete="off" required/>
+        <label for="clave"  class="labelClave" >Clave:</label>
+    </span>
+        
+</div>
     <button class="button">Iniciar sesión</button>
 
     <?php

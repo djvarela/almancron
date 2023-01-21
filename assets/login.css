@@ -1,0 +1,197 @@
+@font-face {
+    font-family: 'Cute Font';
+    src: url("./assets/CuteFont-Regular.woff");
+ 
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #252525;
+}
+
+#signup{
+
+
+    margin: auto;
+    width: 50%;
+    height: 100vh;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+ form > img{
+    width: 50px;
+    filter: invert(1);
+}
+
+
+
+#signup h1{
+    text-align: center;
+    color: #eee;
+    margin:0;
+    font-family: 'Cute Font';
+}
+
+#signup h2{
+    margin: 0;
+    color: #eee;
+    font-size: 2rem;
+    
+    text-shadow: 1px 1px #4a4a53;
+}
+
+
+
+#signup div{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.emailConteiner, .claveConteiner{
+    position:relative;
+    margin-bottom: 1em;
+}
+
+
+
+
+.emailConteiner .claveConteiner, span{
+    background-color: #dfdfdf;
+    width: 100%;
+    display:flex;
+    padding: .5em;
+    
+
+}
+
+#signup .emailConteiner .claveConteiner, span img{
+    width: 25px;
+    left: -25px;
+    top:20px;
+    background-color: #dfdfdf;
+    padding: 5px;
+}
+
+
+/* #signup label{
+    color: #eee;
+    text-align: start;
+} */
+
+
+#signup form{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    gap:1em;
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    border:1px solid rgba(187, 184, 184, 0.623);
+    border-radius: 5px;
+    background-color: #3f7396;
+    box-shadow: 1px 1px 1px rgb(117, 116, 116);
+}
+
+#signup form input{
+    padding: 5px;
+    border-radius: 5px;
+    border:1px solid #dfdfdf;
+    width: 100%;
+    background-color: #dfdfdf;
+    border:none;
+    outline: none;
+}
+
+#signup form input:focus{
+    border:none;
+    outline: none;
+ 
+}
+
+
+
+.labelEmail, .labelClave{
+position: absolute;
+left:2.5em;
+top: .8em;
+transition: all .45s;
+z-index: 2;
+pointer-events: none;
+}
+
+#signup .emailConteiner span input:focus+.labelEmail,
+#signup .emailConteiner span input:valid+.labelEmail{
+    color:#eee;
+    top:-1.1em;
+    left:0
+    
+}
+
+
+
+
+#signup .claveConteiner span input:focus+.labelClave,
+#signup .claveConteiner span input:valid+.labelClave{
+    left: 0;
+    top:-1.1em;
+    color:#eee
+ 
+}
+
+
+#signup button{
+    background-color: #536976;
+    padding: 1em;
+    width: 50%;
+    color: #eee;
+    font-weight: bolder;
+    border: 1px solid rgb(8, 67, 122);
+    cursor: pointer;
+}
+
+#signup button:active{
+    border: 1px solid #2A2A2E;
+    box-shadow: 1px 1px 1px #eee;
+}
+
+.errorMsg{
+    background-color: rgb(204, 37, 37);
+    padding: 1em;
+    color:#eee
+}
+
+@media only screen and (max-width:750px) {
+    
+    #signup{
+        width: 100%;
+        margin: auto;
+        padding: 1em;
+        height: 100%;
+       
+    }
+    #signup h1{
+        text-align: center;
+    }
+
+    #signup form{
+        width: 100%;
+    }
+    #signup input{
+        width: 100%;
+        padding: .5em;
+    }
+
+
+}
