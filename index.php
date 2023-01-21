@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("./DDBB.php");
+include_once( "./php/funciones.php" );
 if(!isset($_SESSION['user_id'])){
     header("Location: ./login.php");
     die();
@@ -15,6 +16,7 @@ if($_POST){
     $c = "INSERT INTO cumples( EMAIL, NOMBRE, FECHA, REGISTRO) VALUES (?,?,?, NOW())";
     $result = $cnx->prepare($c);
     $result->execute([$email, $nombre, $fecha]);
+    header("Location: ./index.php");
 };?>
 <?php  
 if(isset($_GET['salir'])){
@@ -29,79 +31,45 @@ if(isset($_GET['salir'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/normalize.css">
     <link rel="stylesheet" href="./assets/style.css">
-    <title>Nuevo Recordatorio</title>
+    <title>Nuevo Recordatorio | ALMANCRON</title>
 </head>
 <body>
-<header>
-   
-
-        <h1>ALMANCRON</h1>
-        <a href="./index.php?salir">SALIR</a>
- 
-</header>
+    <header>
+            <h1>ALMANCRON</h1>
+            <a href="./index.php?salir">SALIR</a>
+    </header>
 <section class="contenedor">
 
 <div class="registros-conteiner">
 
-<div class="eventos-registrados">
-        <h2>Eventos registrados:</h2>
+    <div class="eventos-registrados">
+            <h2>Eventos registrados:</h2>
 
+            <ul>
+                <?php  eventosRegistrados($cnx) ?> <!-- lista -->
+            </ul>
 
-        <ul>
+    </div>
 
-      <?php 
-        $hoy = date("d-m");
-           $q = "SELECT * FROM cumples";
-           $result = $cnx->prepare($q);
-           $result->execute();
+        <div class="proximos-eventos">
+            <h2>Proximos eventos:</h2>
 
-           while( $row = $result->fetch()  ){
-                $fecha = $row['FECHA'];
-                $nombre = $row['NOMBRE'];
-                echo "<li>$nombre - $fecha</li>";
-           };
+            <ul> 
+                <?php proximosEventos($cnx) ?>   <!-- lista -->
+            </ul>
 
-      ?>
-        </ul>
-</div>
-
-    <div class="proximos-eventos">
-           <h2>Proximos evento</h2>
-        <ul>
-
-<?php 
-        $hoy = date("d-m");
-           $q = "SELECT * FROM cumples WHERE FECHA >= $hoy";
-           $result = $cnx->prepare($q);
-           $result->execute();
-
-           while( $row = $result->fetch()  ){
-                
-                $nombre = $row['NOMBRE'];
-                $fecha = $row['FECHA'];
-                echo "<li>$nombre - $fecha   </li>";
-
-           };
-      
-      
-      ?>
-
-
-</ul>
-</div>
+    </div>
 </div>
 
 
 <form action="index.php" method="post" class="forms">
         <h2>Agregar Recordatorio</h2>
-        <label for="nombre">Nombre y Apellido:</label>
+        <label for="nombre">Motivo:</label>
         <input type="text" name="nombre" required id="nombre">
         <label for="fecha">Fecha:</label>
         <input type="text" id="fecha"  name="fecha" required  placeholder="dia - mes">
         <button>Guardar</button>
     </form>
-
-  
 </section>
 </body>
 </html>
