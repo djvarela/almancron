@@ -17,13 +17,15 @@ $c = "SELECT * FROM cumples WHERE FECHA = '$hoy'";
 $result = $cnx->prepare($c);
 $result->execute();
 
-if ($_POST){
+
     while($row = $result->fetch()){
         $nombre = $row['NOMBRE'];
         $fecha = $row['FECHA'];
         $destinatario = $row['EMAIL'];
 
     };
+
+if($result->rowCount() == true) {
 
 
 $emisor= "evento@almancron.com";
