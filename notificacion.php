@@ -17,12 +17,13 @@ $c = "SELECT * FROM cumples WHERE FECHA = '$hoy'";
 $result = $cnx->prepare($c);
 $result->execute();
 
-while($row = $result->fetch()){
-    $nombre = $row['NOMBRE'];
-    $fecha = $row['FECHA'];
-    $destinatario = $row['EMAIL'];
+if ($_POST){
+    while($row = $result->fetch()){
+        $nombre = $row['NOMBRE'];
+        $fecha = $row['FECHA'];
+        $destinatario = $row['EMAIL'];
 
-};
+    };
 
 
 $emisor= "evento@almancron.com";
@@ -34,13 +35,15 @@ $asunto = "Notificacion de recordatorio";
 $mailer->setFrom( $emisor, "$mombreEmisor" ) ;
 $mailer->addAddress( $destinatario );
 $mailer->Subject= $asunto;
-$mailer->msgHTML("Motivo de evento:  $fecha ");
-
+$mailer->msgHTML("Motivo de evento: $nombre - $fecha ");
 
 if(  $fecha == $hoy ){
     echo "Motivo de evento:  $nombre  |  $fecha";
     $mailer->send();
-}else{
+}
+
+}
+else{
 
     echo "No hay eventos registrados para hoy";
 };
