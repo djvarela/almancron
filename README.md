@@ -3,7 +3,7 @@
 ## Es una _pequeña_ aplicacion para generar recordatorios via **Email**.
 
 La misma esta desarrollada con _PHP_ y funciona de la mano de la funcion **CRON** que traen implementado los Hostings.
-A su vez, mediante un formulario de carga de recordatorios se cargan:
+A su vez, mediante un formulario, se cargan los recordatorios con los siguientes datos:
 
 -MOTIVO
 -FECHA
